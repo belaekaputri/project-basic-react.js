@@ -1,0 +1,5 @@
+cara membuat project
+buat folder lalu panggil git bash(optional)
+1. npx create-react-app nama-project
+2. hapus semua file src dan public
+3. ok
