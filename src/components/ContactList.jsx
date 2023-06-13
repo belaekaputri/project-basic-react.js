@@ -2,7 +2,14 @@ import React from 'react';
 import ContactItem from './ContactItem';
  
 function ContactList({ contacts ,onDelete }) {
- return (
+ if(contacts.length === 0){
+  return(
+  <div className="contact-list">
+     DATA TIDAK ADA
+   </div>
+   )
+ }
+  return (
    <div className="contact-list">
      {
        contacts.map((contact) => (
