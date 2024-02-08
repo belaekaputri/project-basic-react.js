@@ -1,13 +1,33 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom'
 import ContactList from '../components/ContactList';
 import {deleteContact,getContacts} from '../utils/data'
 import SearchBar from '../components/SearchBar';
+
+function HomePageWrapper(){
+    const [searchParams,setSearchParams]=useSearchParams();
+    
+    const keyword =searchParams.get('keyword');
+    
+    function changeSearchParams(keyword){
+        setSearchParams({keyword});
+    }
+
+    return <HomePage dafultKeyword={keyword} keywordChange={changeSearchParams}/>
+
+}
+
+
+
+
+
+
 class HomePage extends React.Component{
     constructor(props){
         super(props);
         this.state={
             contacts:getContacts(),
-            keyword:'',
+            keyword:props.dafultKeyword || '',
         }
         this.onDeleteHandler = this.onDeleteHandler.bind(this);
         this.onKeywordChangeHandler= this.onKeywordChangeHandler.bind(this);
@@ -30,6 +50,8 @@ class HomePage extends React.Component{
                 keyword,
             }
         });
+
+        this.props.keywordChange(keyword); //menyalaraskan url jika kita isika nama di pencarian makan di url akan berubah
       }
 render(){
     const contacts = this.state.contacts.filter((contact) => {
@@ -47,4 +69,4 @@ render(){
 }
 }
 
-export default HomePage;
+export default HomePageWrapper;
