@@ -1,5 +1,4 @@
-const getData = () => {
-  return [
+let contacts = [ 
     {
        id:1,
        name: 'Kim Hanbin',
@@ -18,6 +17,18 @@ const getData = () => {
         tag : 'dsn',
         imageUrl : '/images/3.jpg',
      },
-  ];
+]
+
+function getContacts(){
+   return contacts;
 }
-export { getData };
+
+function addContact(contact){
+   contacts= [...contacts, { id: +new Date(), imageUrl: '/images/2.jpg', ...contact }];
+}
+
+function deleteContact(id) {
+   contacts = contacts.filter((contact) => contact.id !== id);
+ }
+  
+ export { getContacts, addContact, deleteContact };
