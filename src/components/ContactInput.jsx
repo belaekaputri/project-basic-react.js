@@ -34,6 +34,12 @@ class ContactInput extends React.Component{
     onSubmitEventHandler(event){
         event.preventDefault();
         this.props.addContact(this.state);
+        this.setState(() => {
+            return {
+                name:"",
+                tag: "",
+            };
+        });
     }
     render(){
         return(
