@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navigation from './Navigation';
 import HomePage from '../pages/HomePage';
 import AddPage from '../pages/AddPage';
+import NotFound from './NotFound';
  
  
 function ContactApp() {
@@ -16,6 +17,7 @@ function ContactApp() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

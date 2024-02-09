@@ -1,0 +1,2 @@
+cara membuat ikon
+npm install react-icons
